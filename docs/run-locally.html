@@ -54,24 +54,24 @@
 Note that this is an <strong>advanced process</strong>. Some of the concepts used in this section are not easy for the beginners. In order to run CapRover on your local machine (just for testing and development) you need Docker installed on your machine.</p>
 <p>CapRover, by default, uses <code>http://captain.captain.localhost</code>. In most systems, <code>captain.captain.localhost</code> resolves to local ip address of the machine, i.e. 12.0.0.1 and therefore no additional work is needed.</p>
 <blockquote>
-<p>However, if it doesn't you need to point <code>*.captain.local</code> to <code>127.0.0.1</code> or <code>192.168.1.2</code> (your local ip). <strong>NOTE</strong> that <code>etc/hosts</code> won't be enough as Captain needs a wildcard entry and <code>etc/hosts</code> does not allow wildcards, i.e. <code>*.something</code>. On ubuntu 16, <code>dnsmasq</code> (a local DNS server) is built-in. So, it's as simple of editing this file: <code>/etc/NetworkManager/dnsmasq.d/dnsmasq-localhost.conf</code> (create if does not exist) And add this line to it: <code>address=/captain.local/192.168.1.2</code> where <code>192.168.1.2</code> is your local IP address. To make sure you have <code>dnsmasq</code>, you can run <code>which dnsmasq</code> on your terminal, if it's available, path of it will be printed on the terminal, otherwise, there won't be anything printed on your terminal.
+<p>However, if it doesn't do that automatically, you need to manually point <code>*.captain.localhost</code> to <code>127.0.0.1</code> or <code>192.168.1.2</code> (your local ip). <strong>NOTE</strong> that <code>etc/hosts</code> won't be enough as Captain needs a wildcard entry and <code>etc/hosts</code> does not allow wildcards, i.e. <code>*.something</code>. On ubuntu 16, <code>dnsmasq</code> (a local DNS server) is built-in. So, it's as simple of editing this file: <code>/etc/NetworkManager/dnsmasq.d/dnsmasq-localhost.conf</code> (create if does not exist) And add this line to it: <code>address=/captain.localhost/192.168.1.2</code> where <code>192.168.1.2</code> is your local IP address. To make sure you have <code>dnsmasq</code>, you can run <code>which dnsmasq</code> on your terminal, if it's available, path of it will be printed on the terminal, otherwise, there won't be anything printed on your terminal.
 Note: For Ubuntu 18, read <a href="https://askubuntu.com/questions/1029882/how-can-i-set-up-local-wildcard-127-0-0-1-domain-resolution-on-18-04">https://askubuntu.com/questions/1029882/how-can-i-set-up-local-wildcard-127-0-0-1-domain-resolution-on-18-04</a></p>
 </blockquote>
 <p>To verify you have both prerequisites mentioned above:</p>
 <ul>
 <li>Run <code>docker version</code> and make sure your version is at least the version mentioned in the <a href="/docs/get-started.html#c-install-docker-on-server-at-least-version-1706x">docs</a></li>
-<li>Run <code>nslookup randomstring123.captain.local</code> and make sure it resolves to <code>127.0.0.1</code> or your local ip (something like <code>192.168.1.2</code>):</li>
+<li>Run <code>nslookup randomstring123.captain.localhost</code> and make sure it resolves to <code>127.0.0.1</code> or your local ip (something like <code>192.168.1.2</code>):</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-selector-tag">Server</span>:     127<span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.1</span><span class="hljs-selector-class">.1</span>
 <span class="hljs-selector-tag">Address</span>:    127<span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.1</span><span class="hljs-selector-class">.1</span><span class="hljs-selector-id">#53</span>
 
-<span class="hljs-selector-tag">Name</span>:   <span class="hljs-selector-tag">randomstring123</span><span class="hljs-selector-class">.captain</span><span class="hljs-selector-class">.local</span>
+<span class="hljs-selector-tag">Name</span>:   <span class="hljs-selector-tag">randomstring123</span><span class="hljs-selector-class">.captain</span><span class="hljs-selector-class">.localhost</span>
 <span class="hljs-selector-tag">Address</span>: 192<span class="hljs-selector-class">.168</span><span class="hljs-selector-class">.1</span><span class="hljs-selector-class">.2</span>
 </code></pre>
 <p>Once you confirmed that you have the prereqs ready, you can go ahead and install Captain on your machine, similar to what you do on server. Make sure you run as a user with sufficient permission, i.e. <code>sudo</code> on linux based systems. Just follow the steps outlined here: <a href="get-started#step-1-captain-installation">Captain Installation</a></p>
 <p><strong>EXCEPT</strong>
-Do not run <code>caprover serversetup</code>. Instead, go to <a href="http://captain.captain.local:3000">http://captain.captain.local:3000</a> and manually set root domain to <code>captain.local</code>. DO NOT enable/force HTTPS. Obviously, you cannot enable HTTPS on your local domain (captain.local).</p>
-<p>Once you set your root domain as <code>captain.local</code>, use <code>caprover login</code> and enter <code>captain.captain.local</code> as your captain URL and <code>captain42</code> as your default password.</p>
+Do not run <code>caprover serversetup</code>. Instead, go to <a href="http://captain.captain.localhost:3000">http://captain.captain.localhost:3000</a> and manually set root domain to <code>captain.localhost</code>. DO NOT enable/force HTTPS. Obviously, you cannot enable HTTPS on your local domain (captain.localhost).</p>
+<p>Once you set your root domain as <code>captain.localhost</code>, use <code>caprover login</code> and enter <code>captain.captain.localhost</code> as your captain URL and <code>captain42</code> as your default password.</p>
 <p><strong>NON-LINUX USERS</strong>
 You need to add <code>/captain</code> to shared paths.
 To do so, click on the Docker icon -&gt; Setting -&gt; File Sharing and add <code>/captain</code></p>
