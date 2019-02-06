@@ -22,5 +22,6 @@
 <url> <loc>https://www.CapRover.com/docs/run-locally.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.CapRover.com/docs/run-locally.html" /> </url>
 <url> <loc>https://www.CapRover.com/docs/sample-apps.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.CapRover.com/docs/sample-apps.html" /> </url>
 <url> <loc>https://www.CapRover.com/docs/server-purchase.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.CapRover.com/docs/server-purchase.html" /> </url>
+<url> <loc>https://www.CapRover.com/docs/support.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.CapRover.com/docs/support.html" /> </url>
 <url> <loc>https://www.CapRover.com/docs/troubleshooting.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://www.CapRover.com/docs/troubleshooting.html" /> </url>
 </urlset>
