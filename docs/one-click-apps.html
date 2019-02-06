@@ -85,6 +85,12 @@
 <li>Port: MAPPED-PORT-ON-HOST</li>
 </ul>
 <p>For example, in the example explained above, <code>MAPPED-PORT-ON-HOST</code> is <code>1001</code> for <code>mysql-1</code> and <code>1002</code> for <code>mysql-2</code>.</p>
+<p>Assuming your server ip is <code>123.123.123.123</code> and your mapped port is <code>9999</code>:</p>
+<ul>
+<li>For Mongo DB, you would use <code>mongodb://dbuser:dbpassword@123.123.123.123:9999/dbname</code></li>
+<li>For MySQL, you would use <code>HOST: 123.123.123.123</code>, <code>PORT: 9999</code></li>
+<li>and etc...</li>
+</ul>
 <p><strong>IMPORTANT:</strong> After port mapping is done make sure to open the server port. For example, if you mapped port 4444 of your host (server) to port 3306 of your container, you need to run the following command:</p>
 <pre><code class="hljs">ufw allow <span class="hljs-number">4444</span>
 </code></pre>
