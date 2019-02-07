@@ -68,18 +68,21 @@
 <p>If operation finishes successfully, you will be prompted with a success message.</p>
 <p>NOTE: You can be logged in to several Captain servers at the same time. This is particularly useful if you have separate staging and production servers.</p>
 <h3><a class="anchor" aria-hidden="true" id="deploy"></a><a href="#deploy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deploy</h3>
-<p>In order to deploy your application, you first need to create captain-definition file and place it in the root of your project folder. In case of a nodejs application, this would sit in the same folder as your package.json.</p>
-<p>Captain definition file for a nodejs application is:</p>
+<p>In order to deploy your application, you first need to create a captain-definition file and place it in the root of your project folder. In case of a nodejs application, this would sit in the same folder as your package.json.</p>
+<p>A simple captain-definition file for a nodejs application is:</p>
 <pre><code class="hljs"> {
-  <span class="hljs-attr">"schemaVersion"</span> :<span class="hljs-number">2</span> ,
-  <span class="hljs-attr">"templateId"</span> :<span class="hljs-string">"node/8.7.0"</span>
+  <span class="hljs-attr">"schemaVersion"</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-attr">"templateId"</span>: <span class="hljs-string">"node/8.7.0"</span>
  }
 </code></pre>
-<p>See  <a href="/docs/captain-definition-file.html">Captain Definition File</a> for more details on Captain Definition file.</p>
-<p>After making sure that this file exists, run the following command and answers questions:</p>
+<p>See  <a href="/docs/captain-definition-file.html">Captain Definition File</a> for more details on the Captain Definition file.</p>
+<p>After making sure that this file exists, run the following command and answer the questions given:</p>
 <pre><code class="hljs css language-bash">caprover deploy
 </code></pre>
-<p>You will then see your application being uploaded, after that, your application getting built. Note that the build process takes multiple minutes, please be patient!</p>
+<p>You will then see your application being uploaded and, after that, your application getting built. Note that the build process can take several minutes, so please be patient!</p>
+<p>To use the previously-entered values for the current directory, without being asked again, use the <code>-d</code> option:</p>
+<pre><code class="hljs css language-bash">caprover deploy -d
+</code></pre>
 <p>Alternatively, you can use the stateless mode and supply the CapRover server information inline:</p>
 <pre><code class="hljs css language-bash">caprover deploy -h https://captain.root.domain.com -p password -b branchName -a app-name 
 </code></pre>

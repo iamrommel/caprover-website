@@ -54,22 +54,22 @@
 <h2><a class="anchor" aria-hidden="true" id="basics"></a><a href="#basics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basics</h2>
 <p>One of the key components of CapRover is the <code>captain-definition</code> file that sits at the root of your project. In case of NodeJS app, it sits next to package.json, or next to index.php in case of PHP, or requirements.txt for Python app. It's a simple JSON like this:</p>
 <pre><code class="hljs"> {
-  <span class="hljs-attr">"schemaVersion"</span> :<span class="hljs-number">2</span> ,
-  <span class="hljs-attr">"templateId"</span> :<span class="hljs-string">"node/8.7.0"</span>
+  <span class="hljs-attr">"schemaVersion"</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-attr">"templateId"</span>: <span class="hljs-string">"node/8.7.0"</span>
  }
 </code></pre>
 <p><code>schemaVersion</code> is always 2. And <code>templateId</code> is the piece which defines the foundation you need in order to run your app. It is in <code>LANGUAGE/VERSION</code> format. LANGUAGE can be one of these: <code>node</code>, <code>php</code>, <code>python-django</code>, <code>ruby-rack</code>. And VERSION is the version of the language you want to use - see <a href="#versions-for-templateid">below</a>.</p>
 <p>Note that although the <code>templateId</code> can be one of the 4 most popular web app languages: NodeJS, PHP and Python/Django, Ruby/Rack, you are NOT LIMITED to these predefined languages! With CapRover, you have the ability to define your own Dockerfile. With a customized Dockerfile, you can deploy any laguage, Go, Java, .NET, you name it! Dockerfiles are quite easy to write. For example, the two captain-definition files below generate <b>the exact same result</b>.</p>
 <h4><a class="anchor" aria-hidden="true" id="simple-version"></a><a href="#simple-version" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Simple version</h4>
 <pre><code class="hljs"> {
-  <span class="hljs-attr">"schemaVersion"</span> :<span class="hljs-number">2</span> ,
-  <span class="hljs-attr">"templateId"</span> :<span class="hljs-string">"node/8.7.0"</span>
+  <span class="hljs-attr">"schemaVersion"</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-attr">"templateId"</span>: <span class="hljs-string">"node/8.7.0"</span>
  }
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="advanced-version"></a><a href="#advanced-version" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Advanced Version</h4>
 <pre><code class="hljs"> {
-  <span class="hljs-attr">"schemaVersion"</span> :<span class="hljs-number">2</span> ,
-  <span class="hljs-attr">"dockerfileLines"</span> :[
+  <span class="hljs-attr">"schemaVersion"</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-attr">"dockerfileLines"</span>: [
                         <span class="hljs-string">"FROM node:8.7.0-alpine"</span>,
                         <span class="hljs-string">"RUN mkdir -p /usr/src/app"</span>,
                         <span class="hljs-string">"WORKDIR /usr/src/app"</span>,
@@ -86,8 +86,8 @@
 <h2><a class="anchor" aria-hidden="true" id="use-dockerfile-in-captain-definition"></a><a href="#use-dockerfile-in-captain-definition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use Dockerfile in captain-definition:</h2>
 <p>If you already have a Dockerfile for your repo, you can reference it in the captain-definition file:</p>
 <pre><code class="hljs"> {
-  <span class="hljs-attr">"schemaVersion"</span> :<span class="hljs-number">2</span> ,
-  <span class="hljs-attr">"dockerfilePath"</span> :<span class="hljs-string">"./myDockerFile"</span>
+  <span class="hljs-attr">"schemaVersion"</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-attr">"dockerfilePath"</span>: <span class="hljs-string">"./myDockerFile"</span>
  }
 </code></pre>
 <p>Dockerfiles are so simple and easy to read. Even if you don't know anything about Docker, you can get an idea what this does. Some examples of advanced methods: <a href="https://github.com/githubsaturn/captainduckduck/issues/94">PHP Composer</a> and <a href="https://github.com/githubsaturn/meteor-captainduckduck/blob/master/captain-definition">Meteor</a></p>
@@ -95,8 +95,8 @@
 <h2><a class="anchor" aria-hidden="true" id="use-image-name"></a><a href="#use-image-name" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use Image Name</h2>
 <p>If you are an advanced Docker user, you may know that there are plenty of pre-built applications sitting on DockerHub. You can deploy these images using captain-definition. For example to deploy <a href="https://hub.docker.com/r/nginxdemos/hello/">https://hub.docker.com/r/nginxdemos/hello/</a>, you use:</p>
 <pre><code class="hljs"> {
-  <span class="hljs-attr">"schemaVersion"</span> :<span class="hljs-number">2</span> ,
-  <span class="hljs-attr">"imageName"</span> :<span class="hljs-string">"nginxdemos/hello"</span>
+  <span class="hljs-attr">"schemaVersion"</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-attr">"imageName"</span>: <span class="hljs-string">"nginxdemos/hello"</span>
  }
 </code></pre>
 <p>Tip: You can simply copy and paste the captain-definition file above on CapRover web dashboard under the deploy tab.</p>
