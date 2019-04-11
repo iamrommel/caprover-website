@@ -77,7 +77,12 @@
 <p>In some cases, you still have the previous server running, and you just want to create a clone of your server. Since you want your old server to keep running, you shouldn't change your DNS for the old domain. Instead, you want to assign a new one. In this case:</p>
 <ol>
 <li>Create a new wildcard entry in your DNS <code>*.yournewroot.domain.com</code> and point it to the new server</li>
-<li>On your desktop machine, create a temporary entry in your <code>etc/hosts</code> file and add this line <code>OLD-IP-ADDRESS captain.oldroot.domain.com</code> NOTE that you cannot use wild card in hosts file, just add the domain for the dashboard so you can access it temporarily.</li>
+<li>On your desktop machine, create a temporary entry in your <code>etc/hosts</code> file and add this line</li>
+</ol>
+<pre><code class="hljs">OLD-IP-ADDRESS  captain<span class="hljs-selector-class">.oldroot</span><span class="hljs-selector-class">.domain</span><span class="hljs-selector-class">.com</span>
+</code></pre>
+<p>NOTE that you cannot use wild card in hosts file, just add the domain for the dashboard so you can access it temporarily.</p>
+<ol start="3">
 <li>go to <code>captain.oldroot.domain.com</code> in your browser and login to the dashboard. NOTE that you might see an SSL error, you can click on advance and ignore. This is fine as your SSL certification might have been expired. It will get renewed once you set everything up and restart CapRover.</li>
 <li>After logging in to the dashboard, go ahead and change your root domain to <code>yournewroot.domain.com</code> on the dashboard.</li>
 <li>Re-enable SSL certifications and Force HTTPS for your dashboard and other apps if you want.</li>
