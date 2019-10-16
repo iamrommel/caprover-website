@@ -70,10 +70,10 @@
 <p>Persistent directories need to be manually removed after you remove an app from Captain dashboard. This is to avoid accidential delete of important data. To delete persistent directories, depending on the type of persistent directories, steps are different:</p>
 <ul>
 <li>Volumes (persistent directories mapped to a label):
-<img src="http://i67.tinypic.com/2w7o0o0.png" alt="Volumes">
+<img src="/img/docs/label-path.png" alt="Volumes">
 For this type, you need to run <code>docker volume ls</code> to see the names of the volumes, and then run <code>docker volume rm NAME_OF_VOLUME</code> to remove the volume</li>
 <li>Mapped directories on host: these are directories from your server that are mapped to a directory in your container (app). To remove them, simply remove the directory from your server via <code>rm -rf /path/to/directory</code>
-<img src="http://i63.tinypic.com/2h4e07s.png" alt="mapped"></li>
+<img src="/img/docs/path-binding.png" alt="mapped"></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="non-persistent-apps"></a><a href="#non-persistent-apps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Non-Persistent Apps:</h4>
 <p>Generally speaking, anything that does not directly stores data on disk can be made non-persistent. You should always prefer to have non-persistent apps as they are much more flexible. Let's say you have multiple servers, if a server becomes unhealthly, all &quot;non-persistent&quot; apps on that server will automatically get moved to other servers whereas persistent apps are locked down to that server due to some data that they saved on that server.</p>
